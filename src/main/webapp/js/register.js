@@ -9,9 +9,9 @@ $(function () {
         return false;
     });
 
-    $("#username").blur(checkUsername());
-    $("#password").blur(checkPassword());
-    $("#email").blur(checkEmail());
+    $("#username").blur(checkUsername);
+    $("#password").blur(checkPassword);
+    $("#email").blur(checkEmail);
 
 });
 
