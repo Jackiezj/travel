@@ -29,4 +29,14 @@ public class UserServiceImpl implements UserService {
 
         return true;
     }
+
+    @Override
+    public User findByCode(String code) {
+        return dao.findByCode(code);
+    }
+
+    @Override
+    public int activeUser(User realUser) {
+        return dao.activeUser(realUser);
+    }
 }

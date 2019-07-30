@@ -40,4 +40,28 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public User findByCode(String code) {
+        String sql = "select * from tab_user where code = ?";
+        User realUser = null;
+        try {
+            realUser = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), code);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        return realUser;
+    }
+
+    @Override
+    public int activeUser(User realUser) {
+        int count = 0;
+        String sql = "update tab_user set status = \"Y\" where code = ?";
+        try {
+            count = template.update(sql, realUser.getCode());
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
 }

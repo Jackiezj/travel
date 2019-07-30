@@ -6,4 +6,8 @@ public interface UserDao {
     User findByUsername(User user);
 
     void save(User user);
+
+    User findByCode(String code);
+
+    int activeUser(User realUser);
 }
