@@ -2,6 +2,7 @@ $(function () {
     $("#registerForm").submit(function () {
         if (checkUsername() && checkPassword() && checkEmail()) {
             $.post("registerServlet", $(this).serialize(), function (data) {
+                alert(data.errorMsg);
                 // 处理服务器响应数据
             })
         }
@@ -18,7 +19,7 @@ $(function () {
 
 function checkUsername() {
     var username = $("#username").val();
-    var reg_username = /^\w{8, 20}$/;
+    var reg_username = /^\w{8,20}$/;
     var flag = reg_username.test(username);
     if (flag) {
         $("username").css("border", "");

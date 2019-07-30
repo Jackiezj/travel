@@ -54,6 +54,7 @@ public class RegisterServlet extends HttpServlet {
         ResultInfo info = new ResultInfo();
         if (flag) {
             info.setFlag(true);
+            info.setErrorMsg("注册成功");
         } else {
             info.setFlag(false);
             info.setErrorMsg("注册失败");
