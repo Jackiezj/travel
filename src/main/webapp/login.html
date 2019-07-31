@@ -15,9 +15,23 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
       <!--导入angularJS文件-->
-    <script src="js/angular.min.js"></script>
+    <!--<script src="js/angular.min.js"></script>-->
 	<!--导入jquery-->
 	<script src="js/jquery-3.3.1.js"></script>
+    <!--登录js-->
+	<script>
+		$(function () {
+			$("#loginBtn").click(function () {
+				$.post("loginServlet", $("#loginForm").serialize(), function (data) {
+                    if (data.flag) {
+                        location.href = "index.html";
+                    } else {
+                        alert(data.errorMsg);
+                    }
+                });
+            })
+        })
+	</script>
 </head>
 
 <body>
@@ -52,7 +66,7 @@
 					</script>
 			</div>
 			<div class="submit_btn">
-        				<button type="button">登录</button>
+        				<button id="loginBtn" type="button">登录</button>
         				<div class="auto_login">
         					<input type="checkbox" name="" class="checkbox">
         					<span>自动登录</span>
