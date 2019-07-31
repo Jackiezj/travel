@@ -8,4 +8,6 @@ public interface UserService {
     User findByCode(String code);
 
     int activeUser(User realUser);
+
+    User login(User beanUser);
 }

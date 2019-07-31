@@ -10,4 +10,6 @@ public interface UserDao {
     User findByCode(String code);
 
     int activeUser(User realUser);
+
+    User findbyUsernameAndPassword(String username, String password);
 }

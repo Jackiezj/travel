@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserService {
     public int activeUser(User realUser) {
         return dao.activeUser(realUser);
     }
+
+    @Override
+    public User login(User beanUser) {
+        return dao.findbyUsernameAndPassword(beanUser.getUsername(), beanUser.getPassword());
+    }
 }
